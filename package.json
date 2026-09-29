@@ -11,5 +11,9 @@
   "devDependencies": {
     "typescript": "^7.0.2",
     "vitest": "^5.0.2"
+  },
+  "dependencies": {
+    "@dice-roller/rpg-dice-roller": "^5.5.1",
+    "random-js": "^2.1.0"
   }
 }
