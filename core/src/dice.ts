@@ -15,6 +15,21 @@ export interface Dice {
   roll(notation: string): RollResult;
 }
 
+/** The lowest and highest totals a notation can produce, e.g. "2d6" → { min: 2, max: 12 }. */
+export function rollRange(notation: string): { min: number; max: number } {
+  const generator = NumberGenerator.generator;
+  const previous = generator.engine;
+  // Building a DiceRoll rolls it straight away. Use a throwaway engine so that asking for the
+  // range never consumes numbers from a game in progress.
+  generator.engine = NumberGenerator.engines.min;
+  try {
+    const result = new DiceRoll(notation);
+    return { min: result.minTotal, max: result.maxTotal };
+  } finally {
+    generator.engine = previous;
+  }
+}
+
 /**
  * Create a dice roller for one game. The same seed always produces the same sequence of rolls,
  * which is what makes replays, tests and simulations reproducible.

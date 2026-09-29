@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { createDice } from "../src/dice";
+import { createDice, rollRange } from "../src/dice";
 
 const rollMany = (seed: number, notation: string, times: number) => {
   const dice = createDice(seed);
@@ -60,5 +60,16 @@ describe("createDice", () => {
 
   it("rejects notation it cannot understand", () => {
     expect(() => createDice(1).roll("banana")).toThrow();
+  });
+});
+
+describe("rollRange", () => {
+  it.each([
+    ["d6", 1, 6],
+    ["2d6", 2, 12],
+    ["d3+1", 2, 4],
+    ["d6*20", 20, 120],
+  ])("knows %s runs from %i to %i", (notation, min, max) => {
+    expect(rollRange(notation)).toEqual({ min, max });
   });
 });
