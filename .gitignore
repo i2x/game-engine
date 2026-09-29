@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.DS_Store
+
+# Reference book is copyrighted (Hodag RPG) — keep local only
+docs/*.pdf
