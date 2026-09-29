@@ -1,0 +1,8 @@
+{
+  // The simulator runs in Node, so unlike core/ it may use Node's APIs (files, command-line args).
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "types": ["node"]
+  },
+  "include": [".", "../core/src"]
+}
