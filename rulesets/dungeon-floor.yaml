@@ -1,0 +1,67 @@
+# Beneath the Dungeon Floor! (Hodag RPG) — numbers only, used as the reference game.
+# Growing one milestone at a time: human classes and three monsters for now.
+
+name: Beneath the Dungeon Floor
+
+classes:
+  knight:
+    name: Knight
+    tags: [human, warrior]
+    tn: 5
+    hp: 14
+    damage: d6+1
+  mercenary:
+    name: Mercenary
+    tags: [human, warrior]
+    tn: 5
+    hp: 12
+    damage: d6+1
+  nomad:
+    name: Nomad
+    tags: [human, warrior]
+    tn: 5
+    hp: 10
+    damage: d6+1
+  knave:
+    name: Knave
+    tags: [human, thief]
+    tn: 4
+    hp: 10
+    damage: d3+1
+  emerald-mage:
+    name: Mage, Order of Emerald
+    tags: [human, mage]
+    tn: 3
+    hp: 6
+    damage: d3+1
+    spells: 5
+  cleric-of-parrish:
+    name: Cleric of Parrish, Sun God
+    tags: [human, cleric]
+    tn: 4
+    hp: 8
+    damage: d6
+
+monsters:
+  # One big monster: hard to hit, hits hard.
+  minotaur:
+    name: Minotaur
+    count: "1"
+    tn: 6
+    hp: 10
+    damage: { roll: d6, results: [2, 3, 4, 5, 6, 7] }
+  # A swarm: easy to hit, weak hits, many of them.
+  skeletons:
+    name: Skeleton
+    tags: [undead]
+    count: d6+3
+    tn: 3
+    hp: 2
+    damage: { roll: d6, results: [1, 1, 1, 2, 2, 2] }
+  goblins:
+    name: Goblin
+    tags: [goblinoid]
+    count: d3+1
+    tn: 4
+    hp: 4
+    damage: { roll: d6, results: [1, 1, 1, 2, 2, 2] }
